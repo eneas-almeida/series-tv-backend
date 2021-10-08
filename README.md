@@ -73,7 +73,7 @@ O projeto tem como gerencimento de pacotes o **Maven** e o **Makefile** como aut
 #### Episódios
 
 -   /episodes -> Lista episódios (GET)
--   /episodes/{id} -> Atualiza episódios (UPDATE)
+-   /episodes/mark?option={option}&ids={ids} -> Marca como episódio assistido ou não assistido (GET)
 
 <hr />
 
