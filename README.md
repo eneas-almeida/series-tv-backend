@@ -20,7 +20,7 @@ Aplicação back-end e front-end de um sistema de séries de tv.
 
 ### Diagrama de classe
 
-<img src="./media/diagrams/diagram-v1.png" />
+<img src="./media/diagrams/diagram-v2.png" />
 
 <hr />
 
