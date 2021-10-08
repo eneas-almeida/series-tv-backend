@@ -65,5 +65,11 @@ public class User {
         this.password = password;
     }
 
+    /* Methods */
+
+    public static User create(String name, String email, String password) {
+        return new User(name, email, password);
+    }
+
     /* Cardinalities */
 }

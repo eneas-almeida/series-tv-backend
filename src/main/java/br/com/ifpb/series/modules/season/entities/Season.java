@@ -37,5 +37,11 @@ public class Season {
         this.name = name;
     }
 
+    /* Methods */
+
+    public static Season create(String name) {
+        return new Season(name);
+    }
+
     /* Cardinalities */
 }

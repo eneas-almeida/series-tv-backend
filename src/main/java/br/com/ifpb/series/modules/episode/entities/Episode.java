@@ -37,9 +37,14 @@ public class Episode {
     public Episode(String name) {
         super();
         this.name = name;
+        this.setNotWatched();
     }
 
     /* Methods */
+
+    public static Episode create(String name) {
+        return new Episode(name);
+    }
 
     public void setWatched() {
         this.watched = true;

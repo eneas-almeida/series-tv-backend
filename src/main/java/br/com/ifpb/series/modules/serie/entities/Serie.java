@@ -37,5 +37,11 @@ public class Serie {
         this.name = name;
     }
 
+    /* Methods */
+
+    public static Serie create(String name) {
+        return new Serie(name);
+    }
+
     /* Cardinalities */
 }
