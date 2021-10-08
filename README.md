@@ -54,25 +54,26 @@ O projeto tem como gerencimento de pacotes o **Maven** e o **Makefile** como aut
 
 #### Usuário
 
--   /register -> Cria novo usuario
--   /login -> Acessa a plataforma por autenticação de email e senha
--   /dashboard -> Painel administrativo
+-   /users -> Cria novo usuario (POST)
+-   /login -> Acessa a plataforma por autenticação de email e senha (POST)
+-   /dashboard -> Painel administrativo (GET)
 
 #### Série
 
--   /series -> Lista as séries
--   /series -> Registra uma nova série
--   /series/{id} -> Altera uma série
--   /series/{id} -> Deleta uma série
+-   /series -> Cria uma nova série (POST)
+-   /series -> Lista as séries (GET)
+-   /series/{id} -> Exibe uma série (GET)
+-   /series/{id} -> Altera uma série (UPDATE)
+-   /series/{id} -> Deleta uma série (DELETE)
 
 #### Temporada
 
--   /seasons -> Lista temporadas
+-   /seasons -> Lista temporadas (GET)
 
 #### Episódios
 
--   /episodies -> Lista episódios
--   /episodies/{id} -> Atualiza episódios
+-   /episodes -> Lista episódios (GET)
+-   /episodes/{id} -> Atualiza episódios (UPDATE)
 
 <hr />
 
