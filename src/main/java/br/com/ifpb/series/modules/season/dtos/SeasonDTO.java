@@ -23,22 +23,4 @@ public class SeasonDTO {
 
     @JsonManagedReference
     private List<EpisodeDTO> episodes = new ArrayList<>();
-
-    /* Methods */
-
-    public Integer getTotalEpisodes() {
-        return episodes.size();
-    }
-
-    public Integer getEpisodesWatcheds() {
-        int count = 0;
-
-        for (EpisodeDTO e : episodes) {
-            if (e.getWatched().equals(true)) {
-                count++;
-            }
-        }
-
-        return count;
-    }
 }
