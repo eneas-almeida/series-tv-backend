@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import br.com.ifpb.series.modules.season.dtos.CreateSeasonDTO;
+import br.com.ifpb.series.modules.season.dtos.ListSeasonDTO;
 import br.com.ifpb.series.modules.season.dtos.SeasonDTO;
 import br.com.ifpb.series.modules.season.dtos.UpdateSeasonDTO;
 import br.com.ifpb.series.modules.season.entities.Season;
@@ -23,14 +24,18 @@ public class SeasonMapper {
         return modelMapper.map(season, SeasonDTO.class);
     }
 
-    public List<SeasonDTO> toCollectionModel(List<Season> seasons) {
+    public ListSeasonDTO toListDTO(Season season) {
+        return modelMapper.map(season, ListSeasonDTO.class);
+    }
+
+    public List<ListSeasonDTO> toCollectionModel(List<Season> seasons) {
         return seasons.stream()
-                    .map(e -> toDTO(e))
+                    .map(e -> toListDTO(e))
                     .collect(Collectors.toList());
     }
 
-    public Page<SeasonDTO> toCollectionPageModel(Page<Season> seasons) {
-        return seasons.map(e -> toDTO(e));
+    public Page<ListSeasonDTO> toCollectionPageModel(Page<Season> seasons) {
+        return seasons.map(e -> toListDTO(e));
     }
 
     public Season toEntity(CreateSeasonDTO dto) {

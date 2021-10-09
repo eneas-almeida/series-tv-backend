@@ -13,7 +13,7 @@ public enum ProblemType {
     private String title;
 
     ProblemType(String path, String title) {
-        this.uri = "https://store.app" + path;
+        this.uri = "https://series.app" + path;
         this.title = title;
     }
 }

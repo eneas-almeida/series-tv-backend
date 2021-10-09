@@ -1,7 +1,5 @@
 package br.com.ifpb.series.modules.user.use_cases.delete_user;
 
-import java.time.Clock;
-import java.time.OffsetDateTime;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +33,9 @@ public class DeleteUserService {
 
         User user = optionalEntity.get();
 
-        /* Update data */
+        /* Delete user in repository */
 
-        user.setDeletedAt(OffsetDateTime.now(Clock.systemUTC()));
+        userRepository.deleteById(id);
 
         /* End update data */
 

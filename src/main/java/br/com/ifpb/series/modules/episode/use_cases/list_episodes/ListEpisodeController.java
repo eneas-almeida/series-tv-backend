@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.ifpb.series.modules.episode.dtos.EpisodeDTO;
+import br.com.ifpb.series.modules.episode.dtos.ListEpisodeDTO;
 
 @RestController
 @RequestMapping("/episodes")
@@ -17,12 +17,10 @@ public class ListEpisodeController {
     private ListEpisodeService listEpisodeService;
 
     @GetMapping
-    public Page<EpisodeDTO> handle(@RequestParam(value = "page", defaultValue = "0") Integer page,
-                                @RequestParam(value = "linesPerPage", defaultValue = "24") Integer linesPerPage,
-                                @RequestParam(value = "orderBy", defaultValue = "name") String orderBy,
-                                @RequestParam(value = "direction", defaultValue = "DESC") String direction) {
-
-                                    System.out.println("okkkkx");
+    public Page<ListEpisodeDTO> handle(@RequestParam(value = "page", defaultValue = "0") Integer page,
+                                       @RequestParam(value = "linesPerPage", defaultValue = "24") Integer linesPerPage,
+                                       @RequestParam(value = "orderBy", defaultValue = "name") String orderBy,
+                                       @RequestParam(value = "direction", defaultValue = "DESC") String direction) {
 
         return listEpisodeService.execute(page, linesPerPage, orderBy, direction);
     }

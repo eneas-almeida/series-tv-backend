@@ -69,6 +69,7 @@ O projeto tem como gerencimento de pacotes o **Maven** e o **Makefile** como aut
 #### Temporada
 
 -   /seasons -> Lista temporadas (GET)
+-   /seasons/{id} -> Exibe temporada (GET)
 
 #### Episódios
 

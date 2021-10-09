@@ -1,10 +1,18 @@
 package br.com.ifpb.series.modules.serie.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+import br.com.ifpb.series.modules.season.entities.Season;
+import br.com.ifpb.series.modules.user.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Entity(name = "serie")
 public class Serie {
 
-    /* Id & strategy to generate */
+    /* Attribute Id & strategy to generate */
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,20 +36,26 @@ public class Serie {
 
     private String name;
 
-    /* Timestamps */
+    /* Attributes & Cardinalities */
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "serie")
+    private List<Season> seasons = new ArrayList<>();
 
     /* Constructors */
 
-    public Serie(String name) {
+    public Serie(String name, User user) {
         super();
         this.name = name;
+        this.user = user;
     }
 
     /* Methods */
 
-    public static Serie create(String name) {
-        return new Serie(name);
+    public static Serie create(String name, User user) {
+        return new Serie(name, user);
     }
-
-    /* Cardinalities */
 }

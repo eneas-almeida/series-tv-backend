@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.ifpb.series.modules.user.dtos.UserDTO;
+import br.com.ifpb.series.modules.user.dtos.ListUserDTO;
 import br.com.ifpb.series.modules.user.entities.User;
 import br.com.ifpb.series.modules.user.exceptions.UserNotFoundException;
 import br.com.ifpb.series.modules.user.mappers.UserMapper;
@@ -25,7 +25,7 @@ public class ListUserService {
     private UserMapper userMapper;
     
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
-    public Page<UserDTO> execute(Integer page, Integer linesPerPage, String orderBy, String direction) {
+    public Page<ListUserDTO> execute(Integer page, Integer linesPerPage, String orderBy, String direction) {
 
         PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 
@@ -35,7 +35,7 @@ public class ListUserService {
             throw new UserNotFoundException(UserMessageUtils.USER_NOT_FOUND);
         }
 
-        Page<UserDTO> pageUserDTO = userMapper.toCollectionPageModel(users);
+        Page<ListUserDTO> pageUserDTO = userMapper.toCollectionPageModel(users);
 
         return pageUserDTO;
     }

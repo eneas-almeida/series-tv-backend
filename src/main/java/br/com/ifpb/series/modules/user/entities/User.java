@@ -1,16 +1,20 @@
 package br.com.ifpb.series.modules.user.entities;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import br.com.ifpb.series.modules.serie.entities.Serie;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -23,7 +27,7 @@ import lombok.NoArgsConstructor;
 @Entity(name = "user")
 public class User {
 
-    /* Id & strategy to generate */
+    /* Attribute Id & strategy to generate */
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,7 +45,12 @@ public class User {
     @Column(nullable = false, length = 50)
     private String password;
 
-    /* Timestamps */
+    /* Attributes & Cardinalities */
+
+    @OneToMany(mappedBy = "user")
+    private List<Serie> series = new ArrayList<>();
+
+    /* Attributes & Timestamps */
 
     @Column(nullable = false, columnDefinition = "datetime")
     @CreationTimestamp
@@ -51,7 +60,7 @@ public class User {
     @UpdateTimestamp
     private OffsetDateTime updatedAt;
 
-    /* Date for data hiding */
+    /* Attributes & Date for data hiding */
 
     @Column(nullable = true, columnDefinition = "datetime")
     private OffsetDateTime deletedAt;
@@ -70,6 +79,4 @@ public class User {
     public static User create(String name, String email, String password) {
         return new User(name, email, password);
     }
-
-    /* Cardinalities */
 }

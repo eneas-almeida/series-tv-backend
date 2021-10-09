@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import br.com.ifpb.series.modules.serie.dtos.CreateSerieDTO;
+import br.com.ifpb.series.modules.serie.dtos.ListSerieDTO;
 import br.com.ifpb.series.modules.serie.dtos.SerieDTO;
 import br.com.ifpb.series.modules.serie.dtos.UpdateSerieDTO;
 import br.com.ifpb.series.modules.serie.entities.Serie;
@@ -23,14 +24,18 @@ public class SerieMapper {
         return modelMapper.map(serie, SerieDTO.class);
     }
 
-    public List<SerieDTO> toCollectionModel(List<Serie> series) {
+    public ListSerieDTO toListDTO(Serie serie) {
+        return modelMapper.map(serie, ListSerieDTO.class);
+    }
+
+    public List<ListSerieDTO> toCollectionModel(List<Serie> series) {
         return series.stream()
-                    .map(e -> toDTO(e))
+                    .map(e -> toListDTO(e))
                     .collect(Collectors.toList());
     }
 
-    public Page<SerieDTO> toCollectionPageModel(Page<Serie> series) {
-        return series.map(e -> toDTO(e));
+    public Page<ListSerieDTO> toCollectionPageModel(Page<Serie> series) {
+        return series.map(e -> toListDTO(e));
     }
 
     public Serie toEntity(CreateSerieDTO dto) {

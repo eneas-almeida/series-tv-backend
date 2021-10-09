@@ -8,20 +8,18 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserDTO {
-    
-    private Long id;
 
-    /* Others */
+    /* Attributes */
+
+    private Long id;
 
     private String name;
 
     private String email;
 
-    /* Timestamps */
+    /* Attributes &  Timestamps */
 
     private OffsetDateTime createdAt;
 
     private OffsetDateTime updatedAt;
-
-    /* Cardinalities */
 }

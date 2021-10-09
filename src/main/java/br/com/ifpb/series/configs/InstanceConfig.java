@@ -37,44 +37,43 @@ public class InstanceConfig implements CommandLineRunner {
         
         /* User */
 
-        User tiago = User.create("tiago", "tiago@gmail.com", "tiago");
-        User alex = User.create("alex", "alex@gmail.com", "alex");
-        User marcos = User.create("marcos", "marcos@gmail.com", "marcos");
-
-        userRepository.saveAll(Arrays.asList(tiago, alex, marcos));
+        User user_tiago = User.create("tiago", "tiago@gmail.com", "tiago");
+        User user_alex = User.create("alex", "alex@gmail.com", "alex");
+        User user_marcos = User.create("marcos", "marcos@gmail.com", "marcos");
 
         /* Serie */
 
-        Serie friends = Serie.create("Friends");
-        Serie lord_of_rings = Serie.create("Lord of Rings");
-        Serie game_of_thrones = Serie.create("Game of Thrones");
-
-        serieRepository.saveAll(Arrays.asList(friends, lord_of_rings, game_of_thrones));
+        Serie serie_friends = Serie.create("Friends", user_tiago);
+        Serie serie_rings = Serie.create("Lord of Rings", user_tiago);
+        Serie serie_thrones = Serie.create("Game of Thrones", user_tiago);       
 
         /* Season */
 
-        Season season_1_friends = Season.create("Temporada 1");
-        Season season_1_lord_of_rings = Season.create("Temporada 1");
-        Season season_1_game_of_thrones = Season.create("Temporada 1");
-
-        seasonRepository.saveAll(Arrays.asList(season_1_friends, season_1_lord_of_rings, season_1_game_of_thrones));
+        Season season_1_friends = Season.create("Temporada 1", serie_friends);
+        Season season_2_friends = Season.create("Temporada 2", serie_friends);
+        Season season_3_friends = Season.create("Temporada 3", serie_friends);
 
         /* Episode */
 
-        Episode episode_1_season_1_friends = Episode.create("Episódio 1 da temporada 1 de Friends");
-        Episode episode_2_season_1_friends = Episode.create("Episódio 2 da temporada 1 de Friends");
-        Episode episode_3_season_1_friends = Episode.create("Episódio 3 da temporada 1 de Friends");
-        Episode episode_4_season_1_friends = Episode.create("Episódio 4 da temporada 1 de Friends");
-        Episode episode_5_season_1_friends = Episode.create("Episódio 5 da temporada 1 de Friends");
-        Episode episode_6_season_1_friends = Episode.create("Episódio 6 da temporada 1 de Friends");
+        Episode episode_1_season_1_friends = Episode.create("Episódio 1 da temporada 1 de Friends", season_1_friends);
+        Episode episode_2_season_1_friends = Episode.create("Episódio 2 da temporada 1 de Friends", season_1_friends);
+        Episode episode_3_season_1_friends = Episode.create("Episódio 3 da temporada 1 de Friends", season_1_friends);
+        Episode episode_4_season_1_friends = Episode.create("Episódio 4 da temporada 1 de Friends", season_1_friends);
+        Episode episode_5_season_1_friends = Episode.create("Episódio 5 da temporada 1 de Friends", season_1_friends);
+        Episode episode_6_season_1_friends = Episode.create("Episódio 6 da temporada 1 de Friends", season_1_friends);
 
+        /* Save in repositories */
+
+        userRepository.saveAll(Arrays.asList(user_tiago, user_alex, user_marcos));
+        serieRepository.saveAll(Arrays.asList(serie_friends, serie_rings, serie_thrones));
+        seasonRepository.saveAll(Arrays.asList(season_1_friends, season_2_friends, season_3_friends));
         episodeRepository.saveAll(
-                Arrays.asList(
-                    episode_1_season_1_friends,
-                    episode_2_season_1_friends,
-                    episode_3_season_1_friends,
-                    episode_4_season_1_friends,
-                    episode_5_season_1_friends,
-                    episode_6_season_1_friends));
+            Arrays.asList(
+                episode_1_season_1_friends,
+                episode_2_season_1_friends,
+                episode_3_season_1_friends,
+                episode_4_season_1_friends,
+                episode_5_season_1_friends,
+                episode_6_season_1_friends));
     } 
 }

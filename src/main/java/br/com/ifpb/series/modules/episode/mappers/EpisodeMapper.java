@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.ifpb.series.modules.episode.dtos.CreateEpisodeDTO;
 import br.com.ifpb.series.modules.episode.dtos.EpisodeDTO;
+import br.com.ifpb.series.modules.episode.dtos.ListEpisodeDTO;
 import br.com.ifpb.series.modules.episode.dtos.UpdateEpisodeDTO;
 import br.com.ifpb.series.modules.episode.entities.Episode;
 
@@ -23,14 +24,18 @@ public class EpisodeMapper {
         return modelMapper.map(episode, EpisodeDTO.class);
     }
 
-    public List<EpisodeDTO> toCollectionModel(List<Episode> episodes) {
+    public ListEpisodeDTO toListDTO(Episode episode) {
+        return modelMapper.map(episode, ListEpisodeDTO.class);
+    }
+
+    public List<ListEpisodeDTO> toCollectionModel(List<Episode> episodes) {
         return episodes.stream()
-                    .map(e -> toDTO(e))
+                    .map(e -> toListDTO(e))
                     .collect(Collectors.toList());
     }
 
-    public Page<EpisodeDTO> toCollectionPageModel(Page<Episode> episodes) {
-        return episodes.map(e -> toDTO(e));
+    public Page<ListEpisodeDTO> toCollectionPageModel(Page<Episode> episodes) {
+        return episodes.map(e -> toListDTO(e));
     }
 
     public Episode toEntity(CreateEpisodeDTO dto) {

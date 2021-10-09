@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import br.com.ifpb.series.modules.user.dtos.CreateUserDTO;
+import br.com.ifpb.series.modules.user.dtos.ListUserDTO;
 import br.com.ifpb.series.modules.user.dtos.UpdateUserDTO;
 import br.com.ifpb.series.modules.user.dtos.UserDTO;
 import br.com.ifpb.series.modules.user.entities.User;
@@ -23,14 +24,18 @@ public class UserMapper {
         return modelMapper.map(user, UserDTO.class);
     }
 
-    public List<UserDTO> toCollectionModel(List<User> users) {
+    public ListUserDTO toListDTO(User user) {
+        return modelMapper.map(user, ListUserDTO.class);
+    }
+
+    public List<ListUserDTO> toCollectionModel(List<User> users) {
         return users.stream()
-                    .map(e -> toDTO(e))
+                    .map(e -> toListDTO(e))
                     .collect(Collectors.toList());
     }
 
-    public Page<UserDTO> toCollectionPageModel(Page<User> users) {
-        return users.map(e -> toDTO(e));
+    public Page<ListUserDTO> toCollectionPageModel(Page<User> users) {
+        return users.map(e -> toListDTO(e));
     }
 
     public User toEntity(CreateUserDTO dto) {

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.ifpb.series.modules.episode.dtos.EpisodeDTO;
+import br.com.ifpb.series.modules.episode.dtos.ListEpisodeDTO;
 import br.com.ifpb.series.modules.episode.entities.Episode;
 import br.com.ifpb.series.modules.episode.exceptions.EpisodeNotFoundException;
 import br.com.ifpb.series.modules.episode.mappers.EpisodeMapper;
@@ -25,7 +25,7 @@ public class ListEpisodeService {
     private EpisodeMapper episodeMapper;
     
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
-    public Page<EpisodeDTO> execute(Integer page, Integer linesPerPage, String orderBy, String direction) {
+    public Page<ListEpisodeDTO> execute(Integer page, Integer linesPerPage, String orderBy, String direction) {
 
         PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 
@@ -35,7 +35,7 @@ public class ListEpisodeService {
             throw new EpisodeNotFoundException(EpisodeMessageUtils.EPISODE_NOT_FOUND);
         }
 
-        Page<EpisodeDTO> pageEpisodeDTO = episodeMapper.toCollectionPageModel(episodes);
+        Page<ListEpisodeDTO> pageEpisodeDTO = episodeMapper.toCollectionPageModel(episodes);
 
         return pageEpisodeDTO;
     }

@@ -1,5 +1,11 @@
 package br.com.ifpb.series.modules.serie.dtos;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import br.com.ifpb.series.modules.season.dtos.SeasonDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,11 +15,15 @@ public class SerieDTO {
     
     private Long id;
 
-    /* Others */
+    /* Attributes */
 
     private String name;
 
-    /* Timestamps */
+    /* Attributes & Cardinalities */
 
-    /* Cardinalities */
+    // @JsonManagedReference
+    // private ListUserDTO user;
+
+    @JsonManagedReference
+    private List<SeasonDTO> seasons = new ArrayList<>();
 }

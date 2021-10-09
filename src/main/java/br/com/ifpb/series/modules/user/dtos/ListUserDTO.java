@@ -5,11 +5,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SimpleUserDTO {
+public class ListUserDTO {
+
+    private Long id;
     
     private String name;
     
     private String email;
-
-    /* Cardinalities */
 }

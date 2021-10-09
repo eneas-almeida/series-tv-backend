@@ -1,15 +1,13 @@
-package br.com.ifpb.series.modules.episode.dtos;
+package br.com.ifpb.series.modules.serie.dtos;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class EpisodeDTO {
+public class ListSerieDTO {
     
     private Long id;
 
     private String name;
-
-    private Boolean watched;
 }
