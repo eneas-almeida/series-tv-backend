@@ -1,7 +1,7 @@
 package br.com.ifpb.series.modules.user.use_cases.create_user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,7 +10,6 @@ import br.com.ifpb.series.modules.user.dtos.UserDTO;
 import br.com.ifpb.series.modules.user.entities.User;
 import br.com.ifpb.series.modules.user.exceptions.UserAlreadyExistsException;
 import br.com.ifpb.series.modules.user.mappers.UserMapper;
-import br.com.ifpb.series.modules.user.providers.hash_provider.HashProvider;
 import br.com.ifpb.series.modules.user.repositories.UserRepository;
 import br.com.ifpb.series.modules.user.utils.UserMessageUtils;
 
@@ -23,9 +22,8 @@ public class CreateUserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Qualifier("mockHashProvider")
     @Autowired
-    private HashProvider hashProvider;
+    private BCryptPasswordEncoder bcrypt;
 
     @Transactional
     public UserDTO execute(CreateUserDTO dto) {
@@ -44,7 +42,7 @@ public class CreateUserService {
         
         /* Generate password hash */
         
-        user.setPassword(hashProvider.generateHash(dto.getPassword()));
+        user.setPassword(bcrypt.encode(dto.getPassword()));
         
         /* Save user in repository */
         

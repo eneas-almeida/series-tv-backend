@@ -26,9 +26,9 @@ public class CreateSerieService {
 
         /* Verify serie existence with name */
 
-        Boolean existsSerie = serieRepository.existsByName(dto.getName());
+        Boolean existsSerieWithName = serieRepository.existsByName(dto.getName());
 
-        if (existsSerie) {
+        if (existsSerieWithName) {
             throw new SerieAlreadyExistsException(SerieMessageUtils.SERIE_ALREADY_EXISTS);
         }
 

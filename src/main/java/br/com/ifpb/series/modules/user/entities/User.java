@@ -2,14 +2,22 @@ package br.com.ifpb.series.modules.user.entities;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -36,13 +44,16 @@ public class User {
     
     /* Attributes */
 
-    @Column(nullable = false, length = 50)
     private String name;
 
-    @Column(nullable = false, unique = true, length = 50)
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name = "PROFILE")
+	private Set<Integer> profiles = new HashSet<>();
+
+    @Column(unique = true)
     private String email;
 
-    @Column(nullable = false, length = 50)
+    @JsonIgnore
     private String password;
 
     /* Attributes & Cardinalities */
@@ -72,6 +83,7 @@ public class User {
         this.name = name;
         this.email = email;
         this.password = password;
+        addProfile(Profile.CLIENT);
     }
 
     /* Methods */
@@ -79,4 +91,12 @@ public class User {
     public static User create(String name, String email, String password) {
         return new User(name, email, password);
     }
+
+	public Set<Profile> getPerfis() {
+		return profiles.stream().map(x -> Profile.toEnum(x)).collect(Collectors.toSet());
+	}
+	
+	public void addProfile(Profile profile) {
+		profiles.add(profile.getCod());
+	}
 }

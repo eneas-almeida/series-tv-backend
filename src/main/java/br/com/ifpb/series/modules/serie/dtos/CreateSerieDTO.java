@@ -1,5 +1,6 @@
 package br.com.ifpb.series.modules.serie.dtos;
 
+import br.com.ifpb.series.modules.user.entities.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +10,5 @@ public class CreateSerieDTO {
 
     private String name;
 
-    private Integer total_seasons;
-
-    private Integer episodes_per_season;
+    private User user;
 }

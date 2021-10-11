@@ -42,6 +42,10 @@ public class SerieMapper {
         return modelMapper.map(dto, Serie.class);
     }
 
+    public Serie toEntity(SerieDTO dto) {
+        return modelMapper.map(dto, Serie.class);
+    }
+
     public void toCopyEntity(UpdateSerieDTO dto, Serie serie) {
         modelMapper.map(dto, serie);
     }

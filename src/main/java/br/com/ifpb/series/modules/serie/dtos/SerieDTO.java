@@ -20,10 +20,7 @@ public class SerieDTO {
     private String name;
 
     /* Attributes & Cardinalities */
-
-    // @JsonManagedReference
-    // private ListUserDTO user;
-
+    
     @JsonManagedReference
     private List<SpecialSeasonDTO> seasons = new ArrayList<>();
 }

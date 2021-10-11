@@ -3,6 +3,7 @@ package br.com.ifpb.series.modules.serie.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -42,7 +43,7 @@ public class Serie {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "serie")
+    @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL)
     private List<Season> seasons = new ArrayList<>();
 
     /* Constructors */
