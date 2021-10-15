@@ -13,6 +13,8 @@ import br.com.ifpb.series.modules.serie.entities.Serie;
 import br.com.ifpb.series.modules.serie.repositories.SerieRepository;
 import br.com.ifpb.series.modules.user.entities.User;
 import br.com.ifpb.series.modules.user.repositories.UserRepository;
+// import br.com.ifpb.series.modules.user.security.UserSecurity;
+// import br.com.ifpb.series.modules.user.security.UserService;
 import br.com.ifpb.series.modules.wizard.dtos.CreateSerieWizardDTO;
 
 @Service
@@ -33,9 +35,13 @@ public class CreateSerieWizardService {
     @Transactional
     public void execute(CreateSerieWizardDTO dto) {
 
+        // UserSecurity userSecurity = UserService.authenticated();
+
+        // if (userSecurity.equals(null)) {}
+
         User user = userRepository.findOneById(1L).get();
 
-        Serie  serie = Serie.create(dto.getName(), user);
+        Serie  serie = Serie.create(dto.getName(), dto.getTotalSeasons(), dto.getEpisodesPerSeason(), user);
         serieRepository.save(serie);
 
         for (Integer i = 1; i < dto.getTotalSeasons()+1; i++) {

@@ -2,16 +2,12 @@ package br.com.ifpb.series.modules.user.entities;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,9 +42,18 @@ public class User {
 
     private String name;
 
+    private Profile profile;
+
+    @Enumerated(EnumType.STRING)
+	@Column(name = "profile", nullable = false)
+	public Profile getProfile() {
+		return profile;
+	}
+    /*
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "PROFILE")
 	private Set<Integer> profiles = new HashSet<>();
+    */
 
     @Column(unique = true)
     private String email;
@@ -78,25 +83,27 @@ public class User {
 
     /* Constructors */
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password, Profile profile) {
         super();
         this.name = name;
         this.email = email;
         this.password = password;
-        addProfile(Profile.CLIENT);
+        this.profile = profile;
     }
 
     /* Methods */
 
-    public static User create(String name, String email, String password) {
-        return new User(name, email, password);
+    public static User create(String name, String email, String password, Profile profile) {
+        return new User(name, email, password, profile);
     }
 
-	public Set<Profile> getPerfis() {
+    /*
+	public Set<Profile> getProfiles() {
 		return profiles.stream().map(x -> Profile.toEnum(x)).collect(Collectors.toSet());
 	}
 	
 	public void addProfile(Profile profile) {
 		profiles.add(profile.getCod());
 	}
+    */
 }

@@ -10,4 +10,8 @@ public class ListSerieDTO {
     private Long id;
 
     private String name;
+
+    private Integer totalSeasons;
+    
+    private Integer episodesPerSeason;
 }

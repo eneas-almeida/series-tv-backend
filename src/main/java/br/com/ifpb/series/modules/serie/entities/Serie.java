@@ -37,6 +37,10 @@ public class Serie {
 
     private String name;
 
+    private Integer totalSeasons;
+    
+    private Integer episodesPerSeason;
+
     /* Attributes & Cardinalities */
 
     @ManyToOne
@@ -48,15 +52,17 @@ public class Serie {
 
     /* Constructors */
 
-    public Serie(String name, User user) {
+    public Serie(String name, Integer totalSeasons, Integer episodesPerSeason, User user) {
         super();
         this.name = name;
         this.user = user;
+        this.totalSeasons = totalSeasons;
+        this.episodesPerSeason = episodesPerSeason;
     }
 
     /* Methods */
 
-    public static Serie create(String name, User user) {
-        return new Serie(name, user);
+    public static Serie create(String name, Integer totalSeasons, Integer episodesPerSeason, User user) {
+        return new Serie(name, totalSeasons,  episodesPerSeason, user);
     }
 }

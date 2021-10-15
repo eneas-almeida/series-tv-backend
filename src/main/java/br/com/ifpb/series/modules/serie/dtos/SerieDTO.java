@@ -15,9 +15,11 @@ public class SerieDTO {
     
     private Long id;
 
-    /* Attributes */
-
     private String name;
+
+    private Integer totalSeasons;
+    
+    private Integer episodesPerSeason;
 
     /* Attributes & Cardinalities */
     

@@ -1,19 +1,19 @@
 package br.com.ifpb.series.modules.serie.use_cases.list_series;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.ifpb.series.modules.serie.dtos.ListSerieDTO;
 import br.com.ifpb.series.modules.serie.entities.Serie;
-import br.com.ifpb.series.modules.serie.exceptions.SerieNotFoundException;
 import br.com.ifpb.series.modules.serie.mappers.SerieMapper;
 import br.com.ifpb.series.modules.serie.repositories.SerieRepository;
-import br.com.ifpb.series.modules.serie.utils.SerieMessageUtils;
+import br.com.ifpb.series.modules.user.entities.User;
+import br.com.ifpb.series.modules.user.repositories.UserRepository;
 
 @Service
 public class ListSerieService {
@@ -22,21 +22,24 @@ public class ListSerieService {
     private SerieRepository serieRepository;
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
     private SerieMapper serieMapper;
     
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
-    public Page<ListSerieDTO> execute(Integer page, Integer linesPerPage, String orderBy, String direction) {
+    public List<ListSerieDTO> execute() {
+        
+        Optional<User> optionalEntity = userRepository.findOneById(1L);
 
-        PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+        if (optionalEntity.isEmpty()) {}
 
-        Page<Serie> series = serieRepository.findAll(pageRequest);
+        User user = optionalEntity.get();
 
-        if (series.isEmpty()) {
-            throw new SerieNotFoundException(SerieMessageUtils.SERIE_NOT_FOUND);
-        }
+        List<Serie> series = serieRepository.findAllByUserId(user.getId());
 
-        Page<ListSerieDTO> pageSerieDTO = serieMapper.toCollectionPageModel(series);
+        List<ListSerieDTO> listSerieDTO = serieMapper.toCollectionModel(series);
 
-        return pageSerieDTO;
+        return listSerieDTO;
     }
 }

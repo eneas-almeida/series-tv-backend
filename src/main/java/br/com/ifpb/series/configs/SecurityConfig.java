@@ -1,70 +1,92 @@
-package br.com.ifpb.series.configs;
+// package br.com.ifpb.series.configs;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+// import java.util.Arrays;
 
-@Configuration
-@EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.context.annotation.Bean;
+// import org.springframework.context.annotation.Configuration;
+// import org.springframework.http.HttpMethod;
+// import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+// import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+// import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+// import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+// import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+// import org.springframework.security.config.http.SessionCreationPolicy;
+// import org.springframework.security.core.userdetails.UserDetailsService;
+// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+// import org.springframework.web.cors.CorsConfiguration;
+// import org.springframework.web.cors.CorsConfigurationSource;
+// import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-	private static final String[] PUBLIC_MATCHERS = {
-        "/h2-console/**"
-    };
+// import br.com.ifpb.series.modules.user.security.JWTAuthenticationFilter;
+// import br.com.ifpb.series.modules.user.security.JWTAuthorizationFilter;
+// import br.com.ifpb.series.modules.user.security.JWTUtil;
 
-    private static final String[] PUBLIC_MATCHERS_ALL = {
-        "/users/**",
-        "/series/**",
-        "/seasons/**",
-        "/series/**",
-    };
+// @Configuration
+// @EnableWebSecurity
+// @EnableGlobalMethodSecurity(prePostEnabled = true)
+// public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
+// 	@Autowired
+// 	private UserDetailsService userDetailsService;
 
-        http.headers().frameOptions().disable();
+// 	@Autowired
+// 	private JWTUtil jwtUtil;
 
-        http.cors().and().csrf().disable();
+// 	private static final String[] PUBLIC_MATCHERS = {
+//         "/h2-console/**"
+//     };
 
-        http.authorizeRequests()
-            .antMatchers(HttpMethod.GET, PUBLIC_MATCHERS_ALL).permitAll()
-            .antMatchers(HttpMethod.POST, PUBLIC_MATCHERS_ALL).permitAll()
-            .antMatchers(PUBLIC_MATCHERS).permitAll()
-            .anyRequest().authenticated();
+//     private static final String[] PUBLIC_MATCHERS_ALL = {
+//         "/users/**",
+//         "/serie_wizard/**",
+//         "/series/**",
+//         "/seasons/**",
+//         "/episodes/**",
+//     };
 
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-	}
+// 	@Override
+// 	protected void configure(HttpSecurity http) throws Exception {
 
-    @Bean
-	CorsConfigurationSource corsConfigurationSource() {
+//         http.headers().frameOptions().disable();
 
-        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
-        return source;
+//         http.cors().and().csrf().disable();
 
-        /*
-		CorsConfiguration configuration = new CorsConfiguration().applyPermitDefaultValues();
+//         http.authorizeRequests()
+//             .antMatchers(HttpMethod.GET, PUBLIC_MATCHERS_ALL).permitAll()
+//             .antMatchers(HttpMethod.PUT, PUBLIC_MATCHERS_ALL).permitAll()
+//             .antMatchers(HttpMethod.POST, PUBLIC_MATCHERS_ALL).permitAll()
+//             .antMatchers(HttpMethod.DELETE, PUBLIC_MATCHERS_ALL).permitAll()
+//             .antMatchers(PUBLIC_MATCHERS).permitAll()
+//             .anyRequest().authenticated();
 
-		configuration.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "OPTIONS"));
+//         http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
+//         http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
+            
+//         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+// 	}
+
+// 	@Override
+// 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
+// 		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+// 	}
+
+//     @Bean
+// 	CorsConfigurationSource corsConfigurationSource() {
+
+// 		CorsConfiguration configuration = new CorsConfiguration().applyPermitDefaultValues();
+
+// 		configuration.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "OPTIONS"));
 		
-        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		
-        source.registerCorsConfiguration("/**", configuration);
+//         source.registerCorsConfiguration("/**", configuration);
 		
-        return source;
-        */
-	}
+//         return source;
+// 	}
 
-    @Bean
-	public BCryptPasswordEncoder bCryptPasswordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-}
+//     @Bean
+// 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+// 		return new BCryptPasswordEncoder();
+// 	}
+// }

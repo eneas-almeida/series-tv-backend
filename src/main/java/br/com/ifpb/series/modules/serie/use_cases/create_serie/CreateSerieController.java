@@ -18,6 +18,7 @@ public class CreateSerieController {
     @Autowired
     private CreateSerieService createSerieService;
 
+    // @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public SerieDTO handle(@RequestBody CreateSerieDTO dto) {

@@ -1,10 +1,14 @@
 package br.com.ifpb.series.modules.user.entities;
 
 public enum Profile {
-	
+	ROLE_ADMIN,
+	ROLE_USUARIO;
+
+	/*
 	ADMIN(1, "ROLE_ADMIN"),
-	CLIENT(2, "ROLE_CLIENT");
+	USER(2, "ROLE_USER");
 	
+
 	private int cod;
 	private String description;
 	
@@ -35,4 +39,5 @@ public enum Profile {
 		
 		throw new IllegalArgumentException("Id inválido: " + cod);
 	}
+	*/
 }

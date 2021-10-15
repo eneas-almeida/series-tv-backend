@@ -70,8 +70,8 @@ public class ApiExceptionHandle extends ResponseEntityExceptionHandler {
     @ExceptionHandler(EntityAlreadyExistsException.class)
 	public ResponseEntity<?> handleEntityAlreadyExistsException(EntityAlreadyExistsException ex, WebRequest request) {
 		
-		HttpStatus status = HttpStatus.FOUND;
-		ProblemType problemType = ProblemType.ENTITY_ALREADY_EXISTS;
+		HttpStatus status = HttpStatus.CONFLICT;
+		ProblemType problemType = ProblemType.ENTITY_IN_USER;
 		String detail = ex.getMessage();
 		
 		Problem problem = createProblemBuilder(status, problemType, detail);

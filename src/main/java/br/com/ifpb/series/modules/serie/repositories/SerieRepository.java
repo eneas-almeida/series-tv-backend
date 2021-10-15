@@ -17,6 +17,8 @@ public interface SerieRepository extends JpaRepository<Serie, Long> {
     
     List<Serie> findAllByNameContaining(String name);
 
+    List<Serie> findAllByUserId(Long id);
+
     Optional<Serie> findFirstByNameContaining(String name);
 
     List<Serie> findTop5ByNameContaining(String name);

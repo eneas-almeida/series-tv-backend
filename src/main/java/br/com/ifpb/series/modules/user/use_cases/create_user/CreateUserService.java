@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.ifpb.series.modules.user.dtos.CreateUserDTO;
 import br.com.ifpb.series.modules.user.dtos.UserDTO;
+import br.com.ifpb.series.modules.user.entities.Profile;
 import br.com.ifpb.series.modules.user.entities.User;
 import br.com.ifpb.series.modules.user.exceptions.UserAlreadyExistsException;
 import br.com.ifpb.series.modules.user.mappers.UserMapper;
@@ -39,6 +40,10 @@ public class CreateUserService {
         /* Parse dto to entity */
         
         User user = userMapper.toEntity(dto);
+
+        /* Set roler user */
+
+        user.setProfile(Profile.ROLE_USUARIO);
         
         /* Generate password hash */
         
