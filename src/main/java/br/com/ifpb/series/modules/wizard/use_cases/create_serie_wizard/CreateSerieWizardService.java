@@ -55,16 +55,23 @@ public class CreateSerieWizardService {
 
         /* Create season and save in repository */
 
+        Season season = null;
+        Episode episode = null;
+
+        String titleSeason = "";
+        String titleEpisode = "";
+        String time = "120";
+
         for (Integer i = 1; i < dto.getTotalSeasons()+1; i++) {
-            Season season = Season.create("Temporada " + i.toString() + " de " + dto.getName(), serie);
-            
+            titleSeason = "Temporada " + i.toString() + " de " + dto.getName();
+            season = Season.create(titleSeason, serie);            
             seasonRepository.save(season);
 
             /* Create season and save in repository */
 
             for (Integer k = 1; k < dto.getEpisodesPerSeason()+1; k++) {
-                Episode episode = Episode.create("Episódio " + k.toString() + " da temporada " + i.toString() + " de " + dto.getName(), season);
-             
+                titleEpisode = "Episódio " + k.toString() + " da temporada " + i.toString() + " de " + dto.getName();
+                episode = Episode.create(titleEpisode, time, season);
                 episodeRepository.save(episode);
             }
         }

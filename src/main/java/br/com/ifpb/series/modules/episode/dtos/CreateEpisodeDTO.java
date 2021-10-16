@@ -10,5 +10,7 @@ public class CreateEpisodeDTO {
 
     private String name;
 
+    private String time;
+
     private Season season;
 }

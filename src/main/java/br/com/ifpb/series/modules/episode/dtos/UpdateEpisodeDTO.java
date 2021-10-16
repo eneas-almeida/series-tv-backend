@@ -8,4 +8,6 @@ import lombok.Setter;
 public class UpdateEpisodeDTO {
     
     private String name;
+
+    private String time;
 }

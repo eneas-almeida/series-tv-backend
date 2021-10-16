@@ -11,5 +11,7 @@ public class EpisodeDTO {
 
     private String name;
 
+    private String time;
+
     private Boolean watched;
 }

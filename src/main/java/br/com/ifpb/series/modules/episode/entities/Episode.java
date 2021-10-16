@@ -31,6 +31,8 @@ public class Episode {
 
     private String name;
 
+    private String time;
+
     private Boolean watched;
 
     /* Attributes & Cardinalities */
@@ -41,17 +43,18 @@ public class Episode {
 
     /* Constructors */
 
-    public Episode(String name, Season season) {
+    public Episode(String name, String time, Season season) {
         super();
         this.name = name;
+        this.time = time;
         this.season = season;
         this.setNotWatched();
     }
 
     /* Methods */
 
-    public static Episode create(String name, Season season) {
-        return new Episode(name, season);
+    public static Episode create(String name, String time, Season season) {
+        return new Episode(name, time, season);
     }
 
     public void setWatched() {

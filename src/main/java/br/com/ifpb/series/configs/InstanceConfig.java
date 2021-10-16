@@ -68,20 +68,20 @@ public class InstanceConfig implements CommandLineRunner {
 
         /* Episode */
 
-        Episode episode_1_season_1_friends_tiago = Episode.create("Episódio 1 da temporada 1 de Friends", season_1_friends_tiago);
-        Episode episode_2_season_1_friends_tiago = Episode.create("Episódio 2 da temporada 1 de Friends", season_1_friends_tiago);
-        Episode episode_3_season_1_friends_tiago = Episode.create("Episódio 3 da temporada 1 de Friends", season_1_friends_tiago);
-        Episode episode_4_season_1_friends_tiago = Episode.create("Episódio 4 da temporada 1 de Friends", season_1_friends_tiago);
-        Episode episode_5_season_1_friends_tiago = Episode.create("Episódio 5 da temporada 1 de Friends", season_1_friends_tiago);
-        Episode episode_6_season_1_friends_tiago = Episode.create("Episódio 6 da temporada 1 de Friends", season_1_friends_tiago);
+        Episode episode_1_season_1_friends_tiago = Episode.create("Episódio 1 da temporada 1 de Friends","120", season_1_friends_tiago);
+        Episode episode_2_season_1_friends_tiago = Episode.create("Episódio 2 da temporada 1 de Friends","120", season_1_friends_tiago);
+        Episode episode_3_season_1_friends_tiago = Episode.create("Episódio 3 da temporada 1 de Friends","120", season_1_friends_tiago);
+        Episode episode_4_season_1_friends_tiago = Episode.create("Episódio 4 da temporada 1 de Friends","120", season_1_friends_tiago);
+        Episode episode_5_season_1_friends_tiago = Episode.create("Episódio 5 da temporada 1 de Friends","120", season_1_friends_tiago);
+        Episode episode_6_season_1_friends_tiago = Episode.create("Episódio 6 da temporada 1 de Friends","120", season_1_friends_tiago);
 
-        Episode episode_1_season_2_friends_tiago = Episode.create("Episódio 1 da temporada 2 de Friends", season_2_friends_tiago);
-        Episode episode_2_season_2_friends_tiago = Episode.create("Episódio 2 da temporada 2 de Friends", season_2_friends_tiago);
-        Episode episode_3_season_2_friends_tiago = Episode.create("Episódio 3 da temporada 2 de Friends", season_2_friends_tiago);
+        Episode episode_1_season_2_friends_tiago = Episode.create("Episódio 1 da temporada 2 de Friends","120", season_2_friends_tiago);
+        Episode episode_2_season_2_friends_tiago = Episode.create("Episódio 2 da temporada 2 de Friends","120", season_2_friends_tiago);
+        Episode episode_3_season_2_friends_tiago = Episode.create("Episódio 3 da temporada 2 de Friends","120", season_2_friends_tiago);
 
-        Episode episode_1_season_2_friends_alex = Episode.create("Episódio 1 da temporada 2 de Friends", season_2_friends_alex);
-        Episode episode_2_season_2_friends_alex = Episode.create("Episódio 2 da temporada 2 de Friends", season_2_friends_alex);
-        Episode episode_3_season_2_friends_alex = Episode.create("Episódio 3 da temporada 2 de Friends", season_2_friends_alex);
+        Episode episode_1_season_2_friends_alex = Episode.create("Episódio 1 da temporada 2 de Friends","120", season_2_friends_alex);
+        Episode episode_2_season_2_friends_alex = Episode.create("Episódio 2 da temporada 2 de Friends","120", season_2_friends_alex);
+        Episode episode_3_season_2_friends_alex = Episode.create("Episódio 3 da temporada 2 de Friends","120", season_2_friends_alex);
 
         /* Save in repositorieS */
 
