@@ -1,4 +1,4 @@
-# Series
+# SeriesTV
 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/venzel/series/blob/master/LICENSE)
 
@@ -36,7 +36,7 @@ Aplicação fullstack de um sistema de séries de tv.
 
 -   Angular 12
 
-👉 [Link para o repositório do front end](https://github.com/venzel/series-tv-ui-angular)
+👉 [Link para o repositório do front end](https://github.com/venzel/series-tv-frontend)
 
 ### Persistência de dados
 
