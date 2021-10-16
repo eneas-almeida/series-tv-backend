@@ -7,7 +7,7 @@
 
 ## Sobre
 
-Aplicação back-end e front-end de um sistema de séries de tv.
+Aplicação fullstack de um sistema de séries de tv.
 
 <hr />
 
@@ -30,10 +30,13 @@ Aplicação back-end e front-end de um sistema de séries de tv.
 -   Java
 -   Spring Boot
 -   JPA / Hibernate
+-   Autenticação Token JWT
 
 ### Front-end
 
--   JSF
+-   Angular 12
+
+👉 [Link para o repositório do front end](https://github.com/venzel/series-tv-ui-angular)
 
 ### Persistência de dados
 
@@ -42,6 +45,20 @@ Aplicação back-end e front-end de um sistema de séries de tv.
 ### Outras informações
 
 O projeto tem como gerencimento de pacotes o **Maven** e o **Makefile** como automação de comandos, além disso, o mysql é gerenciado através de um container do **Docker**.
+
+## Arquitetura
+
+### Porque Feature by Package?
+
+Feature by Package (FBP) é uma arquitetura que utiliza conceitos do **DDD (Domain Driven Design)**, sugerida por empresas como a **Rocketseat**, com o objetivo de tornar o código mais **flexível**, **escalável** e de **manutenção simples**.
+
+### Vantagens da arquitetura
+
+-   **MANUTENÇÃO**: Facilita o engajamento de muitas equipe e colaboradores em um projeto;
+-   **ESCALÁVEL**: Facilita refatoramento do código monolítico para uma uma estrura de microserviços;
+-   **SOLID**: Facilita a aplicação de todos os princípios do SOLID;
+-   **GIT**: Melhora o gerenciamento dos commits, evitando conflitos e etc;
+-   **TESTES**: Facilita o desenvolvimento de testes de unidade e integração.
 
 #### Bibliotecas externas utilizadas
 
@@ -54,12 +71,13 @@ O projeto tem como gerencimento de pacotes o **Maven** e o **Makefile** como aut
 
 #### Usuário
 
--   /users -> Cria novo usuario (POST)
--   /login -> Acessa a plataforma por autenticação de email e senha (POST)
--   /dashboard -> Painel administrativo (GET)
+-   /users -> Cria um usuário (POST)
+-   /auth -> Autenticacao de usuário (POST)
+-   /auth/refresh -> Atualiza o token jwt (POST)
 
 #### Série
 
+-   /serie_wizard -> Cria uma nova série (POST)
 -   /series -> Cria uma nova série (POST)
 -   /series -> Lista as séries (GET)
 -   /series/{id} -> Exibe uma série (GET)
@@ -68,7 +86,6 @@ O projeto tem como gerencimento de pacotes o **Maven** e o **Makefile** como aut
 
 #### Temporada
 
--   /seasons -> Lista temporadas (GET)
 -   /seasons/{id} -> Exibe temporada (GET)
 
 #### Episódios
@@ -93,7 +110,7 @@ git clone https://github.com/venzel/series
 # Para entrar na pasta do projeto
 cd series
 
-# Para subir o container do mysql na porta 3306
+# Para subir o container do mysql na porta 33064
 make up
 
 # Para executar o projeto na porta 8080
