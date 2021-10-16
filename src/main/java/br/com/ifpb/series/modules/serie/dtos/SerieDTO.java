@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import br.com.ifpb.series.modules.season.dtos.SpecialSeasonDTO;
+import br.com.ifpb.series.modules.user.dtos.BasicUserDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +23,9 @@ public class SerieDTO {
     private Integer episodesPerSeason;
 
     /* Attributes & Cardinalities */
+
+    @JsonManagedReference
+    private BasicUserDTO user;
     
     @JsonManagedReference
     private List<SpecialSeasonDTO> seasons = new ArrayList<>();
