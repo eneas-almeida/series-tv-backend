@@ -62,8 +62,8 @@ public class InstanceConfig implements CommandLineRunner {
         Season season_2_friends_tiago = Season.create("Temporada 2", serie_friends_tiago);
         Season season_3_friends_tiago = Season.create("Temporada 3", serie_friends_tiago);
 
-        Season season_1_friends_alex = Season.create("Temporada 1", serie_friends_alex);
-        Season season_2_friends_alex = Season.create("Temporada 2", serie_rings_alex);
+        Season season_1_friends_alex = Season.create("Temporada 1", serie_thrones_alex);
+        Season season_2_friends_alex = Season.create("Temporada 2", serie_thrones_alex);
         Season season_3_friends_alex = Season.create("Temporada 3", serie_thrones_alex);
 
         /* Episode */

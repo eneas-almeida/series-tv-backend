@@ -1,13 +1,14 @@
 package br.com.ifpb.series.modules.serie.use_cases.list_series;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.ifpb.series.modules.security.JwtUser;
+import br.com.ifpb.series.modules.security.services.UserService;
 import br.com.ifpb.series.modules.serie.dtos.ListSerieDTO;
 import br.com.ifpb.series.modules.serie.entities.Serie;
 import br.com.ifpb.series.modules.serie.mappers.SerieMapper;
@@ -30,15 +31,27 @@ public class ListSerieService {
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     public List<ListSerieDTO> execute() {
         
-        Optional<User> optionalEntity = userRepository.findOneById(1L);
+        /* JWT guard */
 
-        if (optionalEntity.isEmpty()) {}
+        JwtUser jwtUser = UserService.authenticated();
 
-        User user = optionalEntity.get();
+        if (jwtUser == null) {
+            // rule
+        }
+
+        /* Find user by id */
+
+        User user = userRepository.findOneById(jwtUser.getId()).get();
+
+        /* Find all series by UserId */
 
         List<Serie> series = serieRepository.findAllByUserId(user.getId());
 
+        /* Parse entity to list dto */
+
         List<ListSerieDTO> listSerieDTO = serieMapper.toCollectionModel(series);
+
+        /* Resturn list serie dto */
 
         return listSerieDTO;
     }

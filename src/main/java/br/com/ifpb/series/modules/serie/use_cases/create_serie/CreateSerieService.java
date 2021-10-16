@@ -1,11 +1,11 @@
 package br.com.ifpb.series.modules.serie.use_cases.create_serie;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.ifpb.series.modules.security.JwtUser;
+import br.com.ifpb.series.modules.security.services.UserService;
 import br.com.ifpb.series.modules.serie.dtos.CreateSerieDTO;
 import br.com.ifpb.series.modules.serie.dtos.SerieDTO;
 import br.com.ifpb.series.modules.serie.entities.Serie;
@@ -31,13 +31,17 @@ public class CreateSerieService {
     @Transactional
     public SerieDTO execute(CreateSerieDTO dto) {
 
-        /* Data user */
+        /* JWT guard */
 
-        Optional<User> optionalEntity = userRepository.findOneById(1L);
+        JwtUser jwtUser = UserService.authenticated();
 
-        if (optionalEntity.isEmpty()) {}
+        if (jwtUser == null) {
+            // rule
+        }
 
-        User user = optionalEntity.get();
+        /* Find user by id */
+
+        User user = userRepository.findOneById(jwtUser.getId()).get();
 
         /* Verify serie existence with name */
 
