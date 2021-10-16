@@ -1,6 +1,6 @@
 # SeriesTV
 
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/venzel/series/blob/master/LICENSE)
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/venzel/series-tv-backend/blob/master/LICENSE)
 
 > Projeto em Java com Spring Boot da disciplina Desenvolvimento de Sistemas para Web, ministrada pelo professor orientador
 > Danyllo Wagner pelo IPFB 2021.2.<br />
@@ -72,7 +72,7 @@ Feature by Package (FBP) é uma arquitetura que utiliza conceitos do **DDD (Doma
 #### Usuário
 
 -   /users -> Cria um usuário (POST)
--   /auth -> Autenticacao de usuário (POST)
+-   /auth -> Autenticação de usuário (POST)
 -   /auth/refresh -> Atualiza o token jwt (POST)
 
 #### Série
@@ -104,11 +104,11 @@ Feature by Package (FBP) é uma arquitetura que utiliza conceitos do **DDD (Doma
 -   Docker compose
 
 ```bash
-# Para clonar repositório
-git clone https://github.com/venzel/series
+# Para clonar o repositório
+git clone https://github.com/venzel/series-tv-backend
 
 # Para entrar na pasta do projeto
-cd series
+cd series-tv-backend
 
 # Para subir o container do mysql na porta 33064
 make up
