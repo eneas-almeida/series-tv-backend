@@ -13,6 +13,11 @@ run:
 clean:
 	clear && mvn clean package
 
+.PHONY: build
+
+build:
+	clear && mvn clean install
+
 .PHONY: up
 
 up:
