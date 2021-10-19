@@ -10,5 +10,7 @@ public class CreateSeasonDTO {
 
     private String name;
 
+    private Integer total_episodes;
+
     private Serie serie;
 }

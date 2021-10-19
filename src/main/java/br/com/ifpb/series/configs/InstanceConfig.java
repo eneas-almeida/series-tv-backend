@@ -43,7 +43,7 @@ public class InstanceConfig implements CommandLineRunner {
         /* User */
 
         User user_tiago = User.create("tiago", "tiago@gmail.com", bcrypt.encode("tiago"), Profile.ROLE_ADMIN);
-        User user_alex = User.create("alex", "alex@gmail.com", bcrypt.encode("alex"), Profile.ROLE_USUARIO);
+        User user_alex = User.create("alex", "alex@gmail.com", bcrypt.encode("alex123"), Profile.ROLE_USUARIO);
         User user_marcos = User.create("marcos", "marcos@gmail.com", bcrypt.encode("marcos"), Profile.ROLE_USUARIO);
 
         /* Serie */
