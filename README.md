@@ -86,7 +86,10 @@ Feature by Package (FBP) é uma arquitetura que utiliza conceitos do **DDD (Doma
 
 #### Temporada
 
+-   /season_wizard -> Cria uma nova temporada (POST)
+-   /seasons/{id} -> Atualiza temporada (PUT)
 -   /seasons/{id} -> Exibe temporada (GET)
+-   /seasons/{id} -> Deleta temporada (DELETE)
 
 #### Episódios
 
