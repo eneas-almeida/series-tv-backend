@@ -1,4 +1,4 @@
-# Basic configurations
+# Dash to panel install
 
 [ROOT HELP](../HELP.md)
 
