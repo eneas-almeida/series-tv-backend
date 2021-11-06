@@ -61,6 +61,27 @@ ZSH_THEME="spaceship"
 source ~/.zshrc
 ```
 
+## PURE theme, install and config
+
+```bash
+git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+```
+
+## Edit .zshrc
+
+```bash
+nano ~/.zshrc
+
+# INSERT
+fpath+=$HOME/.zsh/pure
+
+autoload -U promptinit; promptinit
+prompt pure
+
+# COMMENT
+ZSH_THEME="spaceship"
+```
+
 ## Install ZSH Syntax Highlighting
 
 ```bash
