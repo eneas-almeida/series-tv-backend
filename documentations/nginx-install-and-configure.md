@@ -7,19 +7,19 @@
 ## Go to ~/
 
 ```bash
-$ cd ~/
+cd ~/
 ```
 
 ## Add key
 
 ```bash
-$ curl -O https://nginx.org/keys/nginx_signing.key && apt-key add ./nginx_signing.key
+curl -O https://nginx.org/keys/nginx_signing.key && apt-key add ./nginx_signing.key
 ```
 
 ## Add repositories
 
 ```bash
-$ nano /etc/apt/sources.list
+nano /etc/apt/sources.list
 
 # INSERT, OBS CHEK VERSION LINUX
 deb http://nginx.org/packages/ubuntu/ xenial nginx
@@ -29,13 +29,13 @@ deb-src http://nginx.org/packages/ubuntu/ xenial nginx
 ## Update system
 
 ```bash
-$ apt-get update
+apt-get update
 ```
 
 ## Install Nginx
 
 ```bash
-$ apt-get install nginx
+apt-get install nginx
 ```
 
 ## [CONFIGURATIONS]
@@ -43,7 +43,7 @@ $ apt-get install nginx
 ### Edit default.conf
 
 ```bash
-$ nano /etc/nginx/conf.d/default.conf
+nano /etc/nginx/conf.d/default.conf
 
 # INSERT
 server {
@@ -77,7 +77,7 @@ server {
 ### Edit default.conf
 
 ```bash
-$ nano /etc/nginx/conf.d/default.conf
+nano /etc/nginx/conf.d/default.conf
 
 # INSERT
 server {
@@ -111,7 +111,7 @@ server {
 ### Edit default.conf, other
 
 ```bash
-$ nano /etc/nginx/conf.d/default.conf
+nano /etc/nginx/conf.d/default.conf
 
 # INSERT
 server {
@@ -132,11 +132,11 @@ server {
 
 ```bash
 # REMOVE AND MANTAIN CONFIGURATIONS
-$ apt-get remove nginx nginx-common
+apt-get remove nginx nginx-common
 
 # REMOVE ALL CONFIGURATIONS
-$ apt-get purge nginx nginx-common
+apt-get purge nginx nginx-common
 
 # AUTO REMOVE
-$ apt-get autoremove
+apt-get autoremove
 ```

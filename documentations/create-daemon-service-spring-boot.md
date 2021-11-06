@@ -5,25 +5,25 @@
 ## Go to folder project
 
 ```bash
-$ cd /var/www/series-tv-backend/target
+cd /var/www/series-tv-backend/target
 ```
 
 ## Copy build
 
 ```bash
-$ cp -r series-0.0.1-SNAPSHOT.jar ./series-tv-backend.jar
+cp -r series-0.0.1-SNAPSHOT.jar ./series-tv-backend.jar
 ```
 
 ## Make to executable .jar
 
 ```bash
-$ chmod +x series-tv-backend.jar
+chmod +x series-tv-backend.jar
 ```
 
 ## Create daemon service
 
 ```bash
-$ nano /etc/systemd/system/series-tv-backend.service
+nano /etc/systemd/system/series-tv-backend.service
 
 # INSERT
 [Unit]
@@ -47,17 +47,17 @@ WantedBy=multi-user.target
 ## Reload daemon
 
 ```bash
-$ systemctl daemon-reload
+systemctl daemon-reload
 ```
 
 ## Start service
 
 ```bash
-$ systemctl start series-tv-backend
+systemctl start series-tv-backend
 ```
 
 ## Check status service
 
 ```bash
-$ systemctl status series-tv-backend
+systemctl status series-tv-backend
 ```

@@ -1,5 +1,6 @@
 # HELP.md
 
+-   [Source list Update](./documentations/source-list-update.md)
 -   [ZSH install and configure](./documentations/zsh-install-and-configure.md)
 -   [Packages importants](./documentations/packages-importants.md)
 -   [Basic configurations](./documentations/basic-configurations.md)

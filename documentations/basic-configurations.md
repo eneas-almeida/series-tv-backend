@@ -5,17 +5,17 @@
 ## Alter hostname
 
 ```bash
-$ hostnamectl set-hostname <name>
+hostnamectl set-hostname <name>
 ```
 
 ## Configure date and hour
 
 ```bash
-$ dpkg-reconfigure tzdata
+dpkg-reconfigure tzdata
 ```
 
 ## Check date
 
 ```bash
-$ date
+date
 ```
