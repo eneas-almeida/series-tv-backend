@@ -1,4 +1,4 @@
-# Install and configure java JDK v11.0.11
+# Source list update
 
 [ROOT HELP](../HELP.md)
 
