@@ -5,6 +5,7 @@
 -   [Packages importants](./documentations/packages-importants.md)
 -   [Basic configurations](./documentations/basic-configurations.md)
 -   [Java JDK 11 install and condifure](./documentations/java-jdk-11-install-and-configure.md)
+-   [Python 3.6 install](./documentations/python-3.6-install.md)
 -   [NodeJS install with NVM](./documentations/nodejs-install-with-nvm.md)
 -   [Yarn install](./documentations/yarn-install.md)
 -   [Docker install](./documentations/docker-install.md)
