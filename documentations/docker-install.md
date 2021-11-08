@@ -59,3 +59,9 @@ sudo apt-get update
 ```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 ```
+
+## Add user from group dockcer
+
+```bash
+sudo usermod -aG docker <name_user>
+```
