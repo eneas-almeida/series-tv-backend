@@ -2,12 +2,9 @@
 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/venzel/series-tv-backend/blob/master/LICENSE)
 
-> Projeto em Java com Spring Boot da disciplina Desenvolvimento de Sistemas para Web, ministrada pelo professor orientador
-> Danyllo Wagner pelo IPFB 2021.2.<br />
-
 ## Sobre
 
-Aplicação fullstack de um sistema de séries de tv.
+Aplicação fullstack de um sistema de séries de tv, utilizando Spring Boot e Angular.
 
 <hr />
 
